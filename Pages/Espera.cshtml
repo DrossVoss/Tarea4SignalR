@@ -1,0 +1,48 @@
+@page
+@model Tarea4SignalR.Pages.EsperaModel
+
+@{
+    ViewData["Title"] = "Esperando verificación";
+}
+
+<section class="tarjeta"
+         id="panel-espera"
+         data-id="@Model.Solicitud.Id">
+
+    <h1>Esperando tu verificación</h1>
+
+    <p>
+        Hola, <strong>@Model.Solicitud.Nombre</strong>
+        (@Model.Solicitud.Email).
+    </p>
+
+    <p id="estado" role="status">
+        Conectando con SignalR...
+    </p>
+
+    <h2>Enlace de prueba (simula el email)</h2>
+
+    <p>
+        Abrí el enlace en una segunda pestaña
+        y conservá esta abierta.
+    </p>
+
+    <a href="@Model.EnlaceVerificacion"
+       target="_blank"
+       rel="noopener noreferrer">
+        Verificar mi correo electrónico
+    </a>
+
+    <form id="form-finalizar"
+          method="post"
+          asp-page-handler="Finalizar">
+        <input type="hidden"
+               name="id"
+               value="@Model.Solicitud.Id" />
+    </form>
+</section>
+
+@section Scripts {
+    <script src="~/lib/signalr/dist/browser/signalr.min.js"></script>
+    <script src="~/js/espera.js"></script>
+}

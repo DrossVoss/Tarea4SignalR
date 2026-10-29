@@ -1,0 +1,31 @@
+@page
+@model Tarea4SignalR.Pages.LoginModel
+
+@{
+    ViewData["Title"] = "Registro";
+}
+
+<section class="tarjeta">
+    <h1>Registro y verificación</h1>
+
+    <p>
+        Ingresá tus datos. Vamos a simular
+        un correo de verificación.
+    </p>
+
+    <form method="post">
+        <label asp-for="Nombre">Nombre</label>
+        <input asp-for="Nombre" required />
+        <span asp-validation-for="Nombre"></span>
+
+        <label asp-for="Email">
+            Correo electrónico
+        </label>
+        <input asp-for="Email"
+               type="email"
+               required />
+        <span asp-validation-for="Email"></span>
+
+        <button type="submit">Continuar</button>
+    </form>
+</section>

@@ -1,0 +1,25 @@
+﻿@{
+    ViewData["Title"] = "Inicio";
+}
+
+<section class="tarjeta">
+    <h1>¡Verificación completada!</h1>
+
+    <p>
+        Bienvenido/a,
+        <strong>@User.Identity?.Name</strong>.
+    </p>
+
+    <p>
+        El navegador recibió la notificación
+        de SignalR y creó una sesión autenticada.
+    </p>
+
+    <form asp-controller="Home"
+          asp-action="Salir"
+          method="post">
+        <button type="submit">
+            Cerrar sesión
+        </button>
+    </form>
+</section>
